@@ -34,7 +34,7 @@ body {
 
 #local-media {
   width: 100%;
-  min-height: 271px;
+  min-height: 538px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   box-sizing: border-box;
@@ -50,6 +50,11 @@ body {
   position: relative;
 }
 
+.video-column {
+    min-width: 970px;
+    flex-basis: 70% !important;
+}
+
 #video-stream-1, #video-stream-2 {
   border-radius: 2px;
   overflow: hidden;
@@ -60,9 +65,9 @@ body {
 
 #video-stream-1 {
   z-index: 1;
-  max-width: 40%;
-  bottom: 1rem;
-  right: 1rem;
+  max-width: 30%;
+  bottom: 0;
+  right: 0;
   position: absolute;
 }
 
@@ -198,7 +203,7 @@ body {
 .page {
   /*z-index: 1;*/
   padding-top: 4rem;
-  max-width: 60rem;
+  max-width: 90rem;
   margin: 0 auto;
 }
 
@@ -217,7 +222,7 @@ body {
 
 .header-inner {
   justify-content: space-between;
-  max-width: 60rem;
+  max-width: 90rem;
   margin: 0 auto;
   display: flex;
   line-height: 3rem;
@@ -359,7 +364,9 @@ div.home-page {
 .hero-text {
   font-size: 4rem;
 }
-
+.chat-column {
+  flex-basis: 30% !important;
+}
 /*.chat-column {
   padding-left: 2rem;
 }
@@ -370,7 +377,7 @@ div.home-page {
 }
 
 #typingArea {
-  
+
 }
 
 #chatInput {
