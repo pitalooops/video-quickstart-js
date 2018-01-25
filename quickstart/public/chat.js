@@ -225,8 +225,7 @@ function printMessage(auth,msg)
             "<img src='https://cdn.glitch.com/dc415a0e-213d-4b6e-9f5b-181c910c5294%2FminionKevin.png?1490112728077' alt='' width='32' height='32'>"+
             "<div class='chat-message-content'>" +
             //"<span class='chat-time'>13:35</span>"+
-            "<p font-size='50%' font-style= 'italic'>"+auth+"</p>"+
-            "<h5>"+msg+"</h5>"+
+            "<h5><strong>"+auth + ": </strong>" + msg+"</h5>"+
             "</div> <!-- end chat-message-content -->"+
             //"<hr>"+
             "</div> <!-- end chat-message -->"
