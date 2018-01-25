@@ -66,7 +66,7 @@ rooms.forEach(room => {
     $('.livestreams').append(
         "<div class='livestream'>"+
         //"<span class='chat-time'>13:35</span>"+
-        '<h5 id="'+ room.unique_name +'">' + room.unique_name+"</h5>" +
+        '<a href="#" onClick="startChat(undefined, undefined,\''+ room.unique_name + '\')"><h5 id="'+ room.unique_name +'">' + room.unique_name+"</h5></a>" +
         //"<hr>"+
         "</div> <!-- end stream -->"
     );

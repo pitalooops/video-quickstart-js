@@ -44,12 +44,12 @@ function generateName(){
 
 }
 
-function startChat(cobrowserId,sessionKey)
+function startChat(cobrowserId,sessionKey, channelName)
 {
     $('#chatHistory').empty();
     // hard code type to public, 2 for private
     channelType="1";
-    channelName=$('#room-name').val();
+    channelName=channelName || $('#room-name').val();
     memberName=generateName();
 
     if (channelName === "")
