@@ -96,13 +96,13 @@ body {
 }
 
 .bubble-left {
-    background: #5BC0DE;
+    background: #00a1df;
     margin-right:10%;
     float:left;
 }
 
 .bubble-right {
-    background: #5CB85C;
+    background: #005fb2;
     margin-left:10% ;
     float:right;
 }

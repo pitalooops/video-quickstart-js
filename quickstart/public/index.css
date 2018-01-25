@@ -248,23 +248,24 @@ body {
   right: 0;
 }
 
-.header-links>div, .header-links>input {
+.header-links>div, .header-links>a, .header-links>input {
   border-radius: 2px;
   padding: 0 1rem;
   margin: 0.75rem 0;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.header-links>div:hover {
+.header-links>div:hover, .header-links>a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.header-links>div:active {
+.header-links>div:active, .header-links>a:active {
   background: rgba(255, 255, 255, 0.4);
 }
 
 .header-links .sign-up,
-.header-links .log-in {
+.header-links .btn-info {
   color: white;
   margin-left: 1rem;
   background: rgba(255, 255, 255, 0.1);
