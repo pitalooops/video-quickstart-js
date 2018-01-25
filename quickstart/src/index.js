@@ -81,6 +81,10 @@ rooms.forEach(room => {
 }, 5000)
 
 function joinRoom(roomName) {
+    if (activeRoom && activeRoom.name === roomName) {
+        goToRoomPage();
+        return
+    }
     if (activeRoom) {
         activeRoom.disconnect();
     }
@@ -90,7 +94,7 @@ function joinRoom(roomName) {
         tracks: IS_STREAMER ? previewTracks : []
     }).then(function(room) {
         roomJoined(room);
-        gotToRoomPage();
+        goToRoomPage();
     })
 }
 
@@ -101,6 +105,7 @@ $.getJSON('/token', function(data) {
     roomToken = data.token;
   // Bind button to join Room.
   document.getElementById('button-join').onclick = function() {
+    goToRoomPage();
     roomName = document.getElementById('room-name').value;
     if (!roomName) {
       alert('Please enter a room name.');
@@ -337,19 +342,19 @@ function leaveRoomIfJoined() {
 
 // ----- PAGE NAVIGATION -----
 
-const gotToHomePage = () => {
+function goToHomePage() {
   document.getElementById('chat-page').style.display = 'none';
   document.getElementById('home-page').style.display = 'block';
 };
 
-const gotToRoomPage = () => {
+function goToRoomPage() {
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('chat-page').style.display = 'flex';
 }
 
-document.getElementById('logo-title-container').onclick = gotToHomePage;
+document.getElementById('logo-title-container').onclick = goToHomePage;
 
-document.getElementById('go-to-browse-page').onclick = gotToHomePage;
+document.getElementById('go-to-browse-page').onclick = goToHomePage;
 
 
 
