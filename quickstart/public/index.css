@@ -272,7 +272,7 @@ body {
 }
 
 .logo-title-container {
-  margin-top: 0.5rem;
+  /*margin-top: 0.5rem;*/
   display: flex;
   cursor: pointer;
 }
@@ -280,13 +280,14 @@ body {
 .header .header-inner .title {
   font-weight: 600;
   font-size: 1rem;
+  line-height: 4rem;
   text-transform: uppercase;
 }
 
 .header .header-inner .logo {
   font-weight: 500;
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  width: 4rem;
   margin-right: 1rem;
   display: inline-block;
   background-image: url('./logo.svg');
