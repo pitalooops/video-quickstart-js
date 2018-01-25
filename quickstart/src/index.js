@@ -8,6 +8,8 @@ var identity;
 var roomName;
 var IS_STREAMER = false;
 var screenShareId;
+var roomToken;
+var rooms;
 
 $("#activate-stream").click(function() {
     IS_STREAMER = true;
@@ -55,9 +57,48 @@ function detachParticipantTracks(participant) {
 // from the room, if joined.
 window.addEventListener('beforeunload', leaveRoomIfJoined);
 
+setInterval(() => {
+    $.getJSON('/Rooms', function(data) {
+        console.log(data);
+        rooms = data.rooms;
+$('.livestreams').empty();
+rooms.forEach(room => {
+    $('.livestreams').append(
+        "<div class='livestream'>"+
+        //"<span class='chat-time'>13:35</span>"+
+        '<h5 id="'+ room.unique_name +'">' + room.unique_name+"</h5>" +
+        //"<hr>"+
+        "</div> <!-- end stream -->"
+    );
+
+    document.getElementById(room.unique_name).onclick = function(roomName) {
+        return function() {
+            joinRoom(roomName);
+        }
+    }(room.unique_name)
+})
+})
+}, 5000)
+
+function joinRoom(roomName) {
+    if (activeRoom) {
+        activeRoom.disconnect();
+    }
+
+    Video.connect(roomToken, {
+        name: roomName,
+        tracks: IS_STREAMER ? previewTracks : []
+    }).then(function(room) {
+        roomJoined(room);
+        gotToRoomPage();
+    })
+}
+
+
 // Obtain a token from the server in order to connect to the Room.
 $.getJSON('/token', function(data) {
   identity = data.identity;
+    roomToken = data.token;
   // Bind button to join Room.
   document.getElementById('button-join').onclick = function() {
     roomName = document.getElementById('room-name').value;
@@ -308,7 +349,7 @@ const gotToRoomPage = () => {
 
 document.getElementById('logo-title-container').onclick = gotToHomePage;
 
-document.getElementById('go-to-room-page').onclick = gotToRoomPage;
+document.getElementById('go-to-browse-page').onclick = gotToHomePage;
 
 
 

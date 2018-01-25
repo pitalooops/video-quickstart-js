@@ -11,6 +11,7 @@ require('dotenv').load();
 
 var http = require('http');
 var path = require('path');
+var axios = require('axios');
 var AccessToken = require('twilio').jwt.AccessToken;
 var VideoGrant = AccessToken.VideoGrant;
 var ChatGrant = AccessToken.ChatGrant;
@@ -87,6 +88,17 @@ app.get('/token', function(request, response) {
     token: token.toJwt()
   });
 });
+
+app.get('/rooms', function(request, response) {
+    axios.get('https://video.twilio.com/v1/Rooms', {
+        auth: {
+            username: process.env.TWILIO_API_KEY,
+            password: process.env.TWILIO_API_SECRET
+        }
+    }).then(res => {
+        response.send(res.data);
+    });
+})
 
 // Create http server and run it.
 var server = http.createServer(app);
