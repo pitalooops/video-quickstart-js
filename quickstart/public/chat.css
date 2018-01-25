@@ -21,8 +21,8 @@ body {
 
 #chat-section {
     margin-left: 2rem;
-    min-height: 30rem;
-    max-height: 30rem;
+    min-height: 35rem;
+    max-height: 35rem;
     width: calc(100% - 2rem);
     /*border: 1px solid orange;*/
     display: flex;
